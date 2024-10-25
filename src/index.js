@@ -1,3 +1,3 @@
-import myPhoto from './img/photo_2024-05-29_11-01-53.png'
+import './index.css'
 
 console.log('Hello, Webpack!');

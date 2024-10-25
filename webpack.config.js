@@ -17,7 +17,7 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'img/[name][ext]',  // Куди Webpack покладе зображення
+          filename: '',  
         },
         use: [
           {
@@ -28,7 +28,10 @@ module.exports = {
           },
         ],
       },
-     
+      {
+        test: /\.css$/, // Находим все файлы с расширением .css
+        use: ['style-loader', 'css-loader'], // Применяем style-loader и css-loader
+      },
     ],
   },
 
@@ -36,7 +39,7 @@ module.exports = {
 
     new CleanWebpackPlugin(),
 
-
+    
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './src/pages/index.html'
