@@ -29,8 +29,20 @@ module.exports = {
         ],
       },
       {
-        test: /\.css$/, // Находим все файлы с расширением .css
-        use: ['style-loader', 'css-loader'], // Применяем style-loader и css-loader
+        test: /\.css$/, 
+        use: ['style-loader', 'css-loader'], 
+      },
+      {
+        test: /\.scss$/, 
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.less$/, 
+        use: ['style-loader', 'css-loader', 'less-loader'],
+      },
+      {
+        test: /\.styl$/, 
+        use: ['style-loader', 'css-loader', 'stylus-loader'],
       },
     ],
   },
@@ -67,7 +79,7 @@ module.exports = {
 
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist'), // Це замінює contentBase
+      directory: path.join(__dirname, 'dist'), 
     },
     compress: true,
     port: 9000,
