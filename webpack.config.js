@@ -8,7 +8,7 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
   optimization: {
-    minimize: true, // Минификация включена
+    minimize: true, 
     minimizer: [
       `...`,
       new CssMinimizerPlugin({
@@ -16,7 +16,7 @@ module.exports = {
           preset: [
             'default',
             {
-              discardComments: { removeAll: false }, // Оставить комментарии
+              discardComments: { removeAll: false },
             },
           ],
         },
@@ -92,7 +92,7 @@ module.exports = {
     filename: 'rozklad.html', 
 }),
 new MiniCssExtractPlugin({
-  filename: 'styles/[name].css', 
+  filename: 'styles/index.css', 
 }),
   ],
 
