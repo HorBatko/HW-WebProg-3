@@ -48,10 +48,7 @@ module.exports = {
   },
 
   plugins: [
-
     new CleanWebpackPlugin(),
-
-    
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './index.html'
