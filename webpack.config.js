@@ -75,7 +75,7 @@ module.exports = {
     filename: 'rozklad.html', 
 }),
 new MiniCssExtractPlugin({
-  filename: 'styles/[name].css', // Помещаем стили в папку `styles`
+  filename: 'styles/[name].scss', // Помещаем стили в папку `styles`
 }),
   ],
 

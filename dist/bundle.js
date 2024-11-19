@@ -1,0 +1,1 @@
+(()=>{"use strict";console.log("Hello, Webpack!"),(-1!==navigator.userAgent.indexOf("MSIE")||navigator.appVersion.indexOf("Trident/")>0)&&(document.querySelector(".ie-warning").style.display="block")})();
