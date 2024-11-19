@@ -3,9 +3,26 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { type } = require('os');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+
 
 module.exports = {
-
+  optimization: {
+    minimize: true, // Минификация включена
+    minimizer: [
+      `...`,
+      new CssMinimizerPlugin({
+        minimizerOptions: {
+          preset: [
+            'default',
+            {
+              discardComments: { removeAll: false }, // Оставить комментарии
+            },
+          ],
+        },
+      }),
+    ],
+  },
   mode: 'production',
   entry: './src/index.js', 
   output: {
