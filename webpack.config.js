@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { type } = require('os');
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
 
@@ -31,20 +31,20 @@ module.exports = {
         ],
       },
       {
-        test: /\.css$/, 
-        use: ['style-loader', 'css-loader'], 
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
-        test: /\.scss$/, 
-        use: [ 'style-loader', 'css-loader', 'sass-loader'],
+        test: /\.scss$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       {
-        test: /\.less$/, 
-        use: ['style-loader', 'css-loader', 'less-loader'],
+        test: /\.less$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
       },
       {
-        test: /\.styl$/, 
-        use: ['style-loader', 'css-loader', 'stylus-loader'],
+        test: /\.styl$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'stylus-loader'],
       },
     ],
   },
@@ -74,7 +74,9 @@ module.exports = {
     template: './src/pages/rozklad.html', 
     filename: 'rozklad.html', 
 }),
-
+new MiniCssExtractPlugin({
+  filename: 'styles/[name].css', // Помещаем стили в папку `styles`
+}),
   ],
 
   devServer: {
