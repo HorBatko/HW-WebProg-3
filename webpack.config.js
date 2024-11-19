@@ -6,11 +6,12 @@ const { type } = require('os');
 
 module.exports = {
 
-  mode: 'development',
+  mode: 'production',
   entry: './src/index.js', 
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: './',
   },
   module: {
     rules: [
@@ -18,7 +19,7 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg)$/i,
         type: 'asset/resource',
         generator: {
-          filename: '',  
+          filename: 'assets/[name][ext]',  
         },
         use: [
           {
