@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { type } = require('os');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin'); 
 
 module.exports = {
 
@@ -34,7 +35,7 @@ module.exports = {
       },
       {
         test: /\.scss$/, 
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: [ 'style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.less$/, 
@@ -71,6 +72,9 @@ module.exports = {
  new HtmlWebpackPlugin({
     template: './src/pages/rozklad.html', 
     filename: 'rozklad.html', 
+}),
+new MiniCssExtractPlugin({  
+  filename: '[name].css',  
 }),
   ],
 
